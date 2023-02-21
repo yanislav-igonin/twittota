@@ -17,6 +17,7 @@
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 
 import { prisma } from "@/server/db";
+import { twitter } from "@/utils/twitter";
 
 type CreateContextOptions = Record<string, never>;
 
@@ -33,6 +34,7 @@ type CreateContextOptions = Record<string, never>;
 const createInnerTRPCContext = (_opts: CreateContextOptions) => {
   return {
     prisma,
+    twitter,
   };
 };
 
