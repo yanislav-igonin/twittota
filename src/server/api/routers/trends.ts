@@ -22,7 +22,7 @@ const defaultKeywords = [
 ];
 
 export const trendsRouter = createTRPCRouter({
-  hello: publicProcedure.input(z.object({
+  getByKeywords: publicProcedure.input(z.object({
     keywords: z.array(z.string()).default(defaultKeywords),
     granularity: z.enum(['minute', 'hour', 'day']).default('hour'),
   })).query(async ({ input, ctx: { twitter } }) => {
