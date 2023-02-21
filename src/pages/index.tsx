@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Layout, LineChart, Spinner } from '@/components';
+import { Layout, LineChart } from '@/components';
 import { api } from '@/utils/api';
 import { type FCWC } from '@/typings/react';
+import { FullscreenSpinner } from '@/components/FullscreenSpinner';
 
 const removeDoubleQuotes = (str: string) => str.replace(/"/g, '');
 
@@ -17,11 +18,7 @@ const ChartContainer: FCWC = ({ children }) =>
 const Home: NextPage = () => {
   const { data } = useTrends();
 
-  if (!data) return (
-    <div className='w-screen h-screen flex justify-center items-center'>
-      <Spinner width={40} height={40} />
-    </div>
-  )
+  if (!data) return <FullscreenSpinner/>;
 
   return <Layout>
     <Head>
