@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 
 const routes = [{
   path: "/search",
-  name: "Search"
+  name: "search"
 }, {
   path: "/",
-  name: "Stonks"
+  name: "stonks"
 }];
 
 
@@ -17,12 +17,13 @@ type NavbarLinkProps = {
   isActive: boolean;
 };
 
-const NavbarLink = ({ path, name, isActive }: NavbarLinkProps) =>
-  <li>
-    <Link href={path} className={isActive ? "text-blue-500" : ""}>
+const NavbarLink = ({ path, name, isActive }: NavbarLinkProps) => {
+  return <li>
+    <Link href={path} className={`font-bold font-mono text-2xl ${isActive ? "text-blue-500" : "text-gray-500"} hover:text-blue-500`}>
       {name}
     </Link>
   </li>;
+}
 
 export const Navbar = () => {
   const router = useRouter();
@@ -30,7 +31,7 @@ export const Navbar = () => {
   return (
     <header>
       <nav>
-        <ul className="flex items-center py-4">
+        <ul className="flex justify-evenly items-center py-4">
           {routes.map(({ name, path }) => ({
             name, path, isActive: router.pathname === path
           })).map(NavbarLink)}
