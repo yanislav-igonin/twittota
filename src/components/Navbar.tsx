@@ -24,7 +24,7 @@ const NavbarLink = ({ path, name, isActive }: NavbarLinkProps) =>
     </Link>
   </li>;
 
-export const Header = () => {
+export const Navbar = () => {
   const router = useRouter();
 
   return (
