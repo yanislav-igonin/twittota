@@ -33,8 +33,8 @@ const Search = () => {
     <Head>
       <title>Search</title>
     </Head>
-    <div className="flex flex-col justify-center">
-      <div className="w-1/2">
+    <div className="flex flex-col items-center">
+      <div className="w-1/2 mb-10">
         <Input value={search} onChange={({ currentTarget: { value } }) => setSearch(value)} />
       </div>
       {data && <LineChart data={data.data} xKey="start" yKey="tweet_count" />}
