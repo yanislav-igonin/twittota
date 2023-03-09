@@ -33,7 +33,9 @@ const ChartFooter: FCWC = ({ children }) =>
 const Home: NextPage = () => {
   const { data } = useTrends();
 
-  if (!data) return <FullscreenSpinner />;
+  if (!data) return <Layout>
+    <FullscreenSpinner />;
+  </Layout>
 
   return <Layout>
     <Head>

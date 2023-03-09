@@ -38,4 +38,18 @@ export const trendsRouter = createTRPCRouter({
       ...count,
     }));
   }),
+  search: publicProcedure.input(z.object({
+    query: z.string(),
+    granularity: z.enum(['minute', 'hour', 'day']).default('hour'),
+  })).query(async ({ input, ctx: { twitter } }) => {
+    const { query, granularity } = input;
+    if (!query) {
+      return null;
+    }
+    const count = await twitter.tweets.tweetCountsRecentSearch({
+      query,
+      granularity: granularity,
+    });
+    return { ...count };
+  }),
 });
