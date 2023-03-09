@@ -29,7 +29,7 @@ export const Navbar = () => {
   const router = useRouter();
 
   return (
-    <header>
+    <header className="z-100">
       <nav>
         <ul className="flex justify-evenly items-center py-4">
           {routes.map(({ name, path }) => ({

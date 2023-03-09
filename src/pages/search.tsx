@@ -37,7 +37,7 @@ const Search = () => {
       <div className="w-1/2 mb-10">
         <Input value={search} onChange={({ currentTarget: { value } }) => setSearch(value)} />
       </div>
-      {data && <LineChart data={data.data} xKey="start" yKey="tweet_count" />}
+      {data && data.data && <LineChart data={data.data} xKey="start" yKey="tweet_count" />}
     </div>
   </Layout>
 }
